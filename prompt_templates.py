@@ -27,7 +27,7 @@ Blog Article:
 EDITOR_PROMPT_TEMPLATE = """
 You are a professional editor.
 
-Your job is to review the following article draft and polish it. Make sure the tone is natural and engaging. Improve grammar, flow, clarity, and structure. Do not remove important information or sections.
+Your job is to review the following article draft and polish it. Make sure the tone is natural and engaging. Improve grammar, flow, clarity, and structure. Do not remove important information or sections. Make sure the article looks like it is written by a human in the paragraph format.
 
 Article Draft:
 {draft}
