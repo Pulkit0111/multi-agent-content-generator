@@ -17,7 +17,7 @@ def run_pipeline(topic):
     #step 2: write
     draft_article = writer_agent(research_summary)
     #step 3: edit
-    polished_article = editor_agent(draft_article)
+    polished_article = editor_agent(draft_article, research_summary)
     save_to_markdown(polished_article, topic)
 
 if __name__ == "__main__":
