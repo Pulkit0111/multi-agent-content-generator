@@ -1,6 +1,7 @@
 from api_client import gpt_client, MODEL
 from prompt_templates import RESEARCH_PROMPT_TEMPLATE, WRITER_PROMPT_TEMPLATE, EDITOR_PROMPT_TEMPLATE
 from tools import web_Search_tool
+from rich import print
 
 def call_gpt(prompt):
     """
@@ -20,7 +21,7 @@ def research_agent(topic):
     """
     Research agent that gathers information on a given topic
     """
-    print("\n🌐 Searching the web for information...")
+    print("\n🌐 [bold green]Searching the web for information...[/bold green]")
     search_results = web_Search_tool(topic)
     prompt = RESEARCH_PROMPT_TEMPLATE.format(search_results=search_results)
     research_summary = call_gpt(prompt)
@@ -30,7 +31,7 @@ def writer_agent(research_summary):
     """
     Writer agent that creates a draft article based on research
     """
-    print("\n🖌️ Writing a draft article...")
+    print("\n🖌️  [bold green]Writing a draft article...[/bold green]")
     prompt = WRITER_PROMPT_TEMPLATE.format(research=research_summary)
     draft_article = call_gpt(prompt)
     return draft_article
@@ -39,7 +40,7 @@ def editor_agent(draft_article, research_summary):
     """
     Editor agent that polishes and improves the draft article
     """
-    print("\n🔍 Reviewing and polishing the article...")
+    print("\n🔍 [bold green]Reviewing and polishing the article...[/bold green]")
     prompt = EDITOR_PROMPT_TEMPLATE.format(draft=draft_article, research=research_summary)
     polished_article = call_gpt(prompt)
     return polished_article
